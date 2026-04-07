@@ -2,18 +2,14 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        StringBuilder nameBuilder = new StringBuilder();
 
-        for (String name : args) {
-            nameBuilder.append(name).append(", ");
+        String names = "World";
+
+        // If arguments are provided
+        if (args.length > 0) {
+            names = String.join(", ", args);
         }
 
-        if (nameBuilder.length() > 0) {
-            // Remove last ", "
-            String result = nameBuilder.substring(0, nameBuilder.length() - 2);
-            System.out.println("Hello " + result);
-        } else {
-            System.out.println("Hello World");
-        }
+        System.out.println("Hello, " + names + "!");
     }
 }
