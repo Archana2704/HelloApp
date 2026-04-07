@@ -1,13 +1,26 @@
-public class HelloApp {
-    public static void main(String[] args){
-        StringBuilder nameBuilder = new StringBuilder();
-        for (int i = 0; i < args.length; i++) {
-            nameBuilder.append(args[i]);
-            if (i < args.length - 1) {
-                nameBuilder.append(",");
-            }
-            String name = nameBuilder.toString();
-            System.out.println(name);
+package org.example;
+public class Main {
+    public static void main(String[] args) {
+
+        // If no arguments are provided
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
+            return;
         }
+
+        // Using StringBuilder to build the greeting
+        StringBuilder nameBuilder = new StringBuilder();
+        boolean first = true;
+
+        for (String name : args) {
+            if (!first) {
+                nameBuilder.append(", ");
+            }
+            nameBuilder.append(name);
+            first = false;
+        }
+
+        // Display final output
+        System.out.println("Hello, " + nameBuilder.toString() + "!");
     }
 }
